@@ -1,0 +1,4 @@
+bianco
+nero
+marrone
+rosso
