@@ -11,8 +11,11 @@ int main()
     int fd;
     if (mkfifo("myFifo_1", 0777) < 0)
     {
-        printf("errore creazione Fifo\n");
-        exit(-1);
+        if (errno != EEXIST)
+        {
+            printf("errore creazione Fifo\n");
+            exit(-1);
+        }
     }
     // apre la FIFO in scrittura
     fd = open("myFifo_1", O_WRONLY);
@@ -23,7 +26,7 @@ int main()
         printf("write non riuscita\n");
         exit(0);
     }
-    printf("scrittura FIFO con successo");
+    printf("scrittura FIFO con successo\n");
     close(fd);
     return 0;
 }
