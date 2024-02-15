@@ -7,15 +7,15 @@
 #define BUFFER_DIM 1024
 int main(int argc, char *argv[])
 {
-    if (argc != 3)
+    if (argc != 4)
     {
         printf("errore argomenti\n");
         exit(-1);
     }
     FILE *file;
     int lenghth;
-    int p, status;
-    int pp[2];
+    int p, p2, status;
+    int pp[2], pp2[2];
     unsigned char buffer[BUFFER_DIM];
     if (pipe(pp) == -1)
     {
@@ -47,22 +47,50 @@ int main(int argc, char *argv[])
     }
     else // padre
     {
-        close(pp[0]);
-        file = fopen(argv[1], "rb");
-        if (file == NULL)
+        if (pipe(pp2) == -1)
         {
-            printf("errore apertura file argv[1]\n");
-            close(pp[1]);
-            wait(&status);
+            printf("pipe non riuscita\n");
+            exit(-1);
+        }
+        p2 = fork();
+        if (p2 < 0)
+        {
+            printf("fork non riuscita\n");
             exit(0);
         }
-
-        while ((lenghth = fread(buffer, 1, sizeof(buffer), file)) > 0)
+        if (p2 == 0) // figlio 2
         {
-            write(pp[1], buffer, lenghth);
+            char car;
+            int contCar = 0;
+            car = *argv[3];
+            file = fopen(argv[1], "rb");
+            while ((lenghth = read(pp2[0], buffer, sizeof(buffer))) > 0)
+            {
+                if (buffer[lenghth] == car)
+                {
+                    contCar++;
+                }
+            }
+            printf("il carattere %c è comparsa %d volte\n", car, contCar);
         }
-        close(pp[1]);
-        fclose(file);
+        else
+        {
+            close(pp[0]);
+            file = fopen(argv[1], "rb");
+            if (file == NULL)
+            {
+                printf("errore apertura file argv[1]\n");
+                close(pp[1]);
+                wait(&status);
+                exit(0);
+            }
+            while ((lenghth = fread(buffer, 1, sizeof(buffer), file)) > 0)
+            {
+                write(pp[1], buffer, lenghth);
+            }
+            close(pp[1]);
+            fclose(file);
+        }
     }
     return 0;
 }
