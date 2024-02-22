@@ -20,6 +20,7 @@ int main()
     fd = open("myFifo_1", O_WRONLY);
     printf("fifo creato\n");
     int x[5];
+    srand(time(NULL));
     for (int i = 0; i < 5; i++)
     {
         x[i] = rand() % 100;
