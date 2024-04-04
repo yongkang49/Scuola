@@ -7,7 +7,7 @@
 #include <fcntl.h>
 
 #define BLOCK_DIM 1024
-#define PROGRAM "es1"
+#define PROGRAM "./es1"
 
 int spawn(char program[], char *argument[])
 {
