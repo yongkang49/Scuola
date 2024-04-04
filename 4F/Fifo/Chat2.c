@@ -35,14 +35,16 @@ int main()
             fd = open("fifo2", O_WRONLY);
             scanf("%s", buffer);
             write(fd, buffer, sizeof(buffer));
+            close(fd);
         }
         else
         {
             fd = open("fifo1", O_RDONLY);
             read(fd, buffer, sizeof(buffer));
             printf("%s\n", buffer);
+            close(fd);
         }
-    } while (strcmp(buffer, "HALT") != 1);
-    close(fd);
+    } while (strcmp(buffer, "HALT"));
+    kill(p,SIGKILL);
     return 0;
 }
