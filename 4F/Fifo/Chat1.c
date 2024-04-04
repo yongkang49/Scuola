@@ -44,7 +44,7 @@ int main()
             printf("%s\n", buffer);
             close(fd);
         }
-    } while (strcmp(buffer, "HALT") != 1);
+    } while (strcmp(buffer, "HALT"));
     kill(p,SIGKILL);
     return 0;
 }
