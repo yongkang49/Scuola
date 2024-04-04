@@ -5,6 +5,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <errno.h>
 
 #define BLOCK_DIM 1024
 #define PROGRAM "./es1"
@@ -52,6 +53,18 @@ int main(int argc, char *argv[])
         free(arg[0]);
         free(arg[1]);
         return 0;
+    }
+
+    // creazione fifo "my_fifo"
+    if (mkfifo("my_fifo", 0777) < 0)
+    {
+        if (errno != EEXIST)
+        {
+            printf("Errore creazione fifo\r\n");
+            free(arg[0]);
+            free(arg[1]);
+            return 0;
+        }
     }
 
     // apertura in scrittura FIFO
