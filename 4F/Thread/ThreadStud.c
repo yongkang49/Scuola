@@ -51,7 +51,7 @@ int main()
     printf("inserisci la media: ");
     scanf("%d", &st1.media);
     pthread_create(&tStampa, NULL, &stampa, &st1);
-    pthread_create(&tStampa, NULL, &salva, &st1);
+    pthread_create(&tSalva, NULL, &salva, &st1);
     pthread_join(tStampa, NULL);
     pthread_join(tSalva, NULL);
     return 0;
