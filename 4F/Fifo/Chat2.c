@@ -6,11 +6,14 @@
 #include <sys/types.h>
 #include <errno.h>
 #include <fcntl.h>
+
+#define BUFFER_DIM 1024
+
 int main()
 {
     int fd, n;
-    char buffer[2048];
-    if (mkfifo("fifo", 0777) == -1)
+    char buffer[BUFFER_DIM];
+    if (mkfifo("fifo1", 0777) == -1)
     {
         if (errno != EEXIST)
         {
@@ -41,10 +44,11 @@ int main()
         {
             fd = open("fifo1", O_RDONLY);
             read(fd, buffer, sizeof(buffer));
-            printf("%s\n", buffer);
+            printf("\x1b[32m %s <-----\n", buffer);
+            printf("\x1b[0m");
             close(fd);
         }
     } while (strcmp(buffer, "HALT"));
-    kill(p,SIGKILL);
+    close(fd);
     return 0;
 }
