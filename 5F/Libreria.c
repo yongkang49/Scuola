@@ -43,11 +43,11 @@ void VisualizzaLibri(t_libro libri[], int k)
 {
 	for (int i = 0; i < k; i++)
 	{
-		printf("[%d] ", &i+1);
+		printf("[%d] ", i+1);
 		printf("%s", libri[i].titolo);
 		printf("%s", libri[i].autore);
 		printf("%d", libri[i].anno);
-		printf("%f", libri[i].prezzo);
+		printf("%.2f", libri[i].prezzo);
 	}
 	
 }
@@ -68,7 +68,7 @@ void menu()
 int main()
 {
 	FILE *lista;
-	t_libro libri[20];
+	t_libro libri[200];
 	int n, opzione;
 	lista = fopen("libri.txt", "r");
 	if (lista == NULL)
@@ -76,7 +76,8 @@ int main()
         printf("Errore nell'aprire il file.\n");
         return 1;
     }
-
+	n = PopolaLibri(lista, libri);
+	VisualizzaLibri(libri, n);
 	fclose(lista);
 	return 0;
 }
