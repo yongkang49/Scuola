@@ -1,60 +1,143 @@
 <!DOCTYPE html>
 <html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TCP vs UDP</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Socket - Introduzione</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-</head>
-
-<body>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Home</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="socket.html">Socket</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="osi.html">Modello OSI</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="tcpUdp.html">TCP vs UDP</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Grossario
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="socket.html">Socket</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="osi.html">Modello OSI</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tcpUdp.html">TCP vs UDP</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="glossario.html">Glossario</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
+    <div class="container mt-5 text-center">
+      <h1>TCP vs UDP</h1>
+    </div>
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-md-6 d-flex flex-column align-items-center">
+          <h2>TCP</h2>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <strong>Connessione</strong>: Orientato alla connessione,
+              stabilisce un handshake a tre vie prima del trasferimento dei
+              dati.
+            </li>
+            <li class="list-group-item">
+              <strong>affidabilità</strong>: L’architettura dei pacchetti
+              garantisce la consegna nell’ordine corretto.
+            </li>
+            <li class="list-group-item">
+              <strong>Velocità</strong>: Più lento di UDP grazie ai meccanismi
+              di controllo degli errori.
+            </li>
+            <li class="list-group-item">
+              <strong>Controllo del flusso di dati</strong>: Il controllo del
+              flusso è gestito attraverso tecniche di windowing per regolare il
+              flusso dei dati.
+            </li>
+            <li class="list-group-item">
+              <strong>Utilizzo</strong>: Utilizzato nei casi in cui la
+              trasmissione affidabile dei dati è fondamentale (ad esempio,
+              navigazione web, e-mail).
+            </li>
+            <li class="list-group-item">
+              <strong>Dimensione dell’header</strong>: Dimensione dell’header
+              maggiore (minimo 20 byte).
+            </li>
+            <li class="list-group-item">
+              <strong>Sequenziamento</strong>: Sequenzia i pacchetti di dati per
+              garantire una consegna ordinata.
+            </li>
+          </ul>
+        </div>
 
-    <div class="container mt-5">
+        <div class="col-md-5 d-flex flex-column align-items-center">
+          <h2>UDP</h2>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <strong>Connessione</strong>: Senza connessione, non stabilisce
+              una connessione prima di inviare i dati.
+            </li>
+            <li class="list-group-item">
+              <strong>affidabilità</strong>: Non garantisce la consegna,
+              l’ordine o il controllo degli errori.
+            </li>
+            <li class="list-group-item"><strong>Velocità</strong>: Veloce.</li>
+            <li class="list-group-item">
+              <strong>Controllo del flusso di dati</strong>: Nessun controllo di
+              flusso; invia i dati alla velocità che il mittente può generare e
+              che la rete può gestire.
+            </li>
+            <li class="list-group-item">
+              <strong>Utilizzo</strong>: Utilizzato per applicazioni sensibili
+              al tempo in cui la perdita di alcuni dati è tollerabile (ad
+              esempio, streaming audio/video in diretta).
+            </li>
+            <li class="list-group-item">
+              <strong>Dimensione dell’header</strong>: Dimensione dell’header
+              ridotta (8 byte).
+            </li>
+            <li class="list-group-item">
+              <strong>Sequenziamento</strong>: Utilizzato per applicazioni
+              sensibili al tempo in cui la perdita di alcuni dati è tollerabile
+              (ad esempio, streaming audio/video in diretta).
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-primary container mt-5" role="alert">
+      Per maggiori informazioni clicca
+      <a
+        href="https://www.ninjaone.com/it/blog/tcp-e-udp/"
+        target="_blank"
+        class="alert-link"
+        >qui</a
+      >.
     </div>
     <footer class="bg-light text-center py-3">
-        <p>Yongkang Hu - Classe 5F</p>
+      <p>Yongkang Hu - Classe 5F</p>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

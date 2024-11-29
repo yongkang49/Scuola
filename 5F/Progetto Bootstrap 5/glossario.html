@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glossario Termini</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="socket.html">Socket</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="osi.html">Modello OSI</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tcpUdp.html">TCP vs UDP</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="grossario.html">Glossario</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container mt-2">
+      <h1>Glossario dei termini usati nel sito</h1>
+    </div>
+    <div class="container list-group mt-2">
+      <a href="socket.html" class="list-group-item list-group-item-action"
+        ><strong>Modello Input/Output su file di Unix</strong>:In Unix, tutto è
+        rappresentato come un file, incluso l'I/O. Dispositivi, socket e canali
+        sono trattati come file e possono essere letti o scritti tramite i
+        descrittori di file. Questo modello permette di interagire con risorse
+        diverse (come tastiere, schermi o file system) in modo uniforme usando
+        chiamate standard come read() e write().
+      </a>
+      <a href="socket.html" class="list-group-item list-group-item-action"
+        ><strong>Server</strong>: Un server è un programma o un dispositivo che
+        offre servizi o risorse a uno o più client attraverso una rete. Ad
+        esempio, un server web fornisce pagine web ai browser, mentre un server
+        di posta gestisce l'invio e la ricezione di e-mail.</a
+      >
+      <a href="socket.html" class="list-group-item list-group-item-action"
+        ><strong>Client</strong>: Un client è un programma o dispositivo che
+        invia richieste a un server per accedere a servizi o risorse. Ad
+        esempio, un browser web è un client che richiede pagine HTML da un
+        server web.</a
+      >
+      <a href="socket.html" class="list-group-item list-group-item-action"
+        ><strong>Canale virtuale</strong>: Un canale virtuale è un mezzo logico
+        per la comunicazione tra due entità (come processi, thread o
+        dispositivi) su una rete o un sistema. È astratto rispetto ai canali
+        fisici e può essere implementato tramite protocolli software, tunnel o
+        connessioni virtuali per trasmettere dati.</a
+      >
+      <a href="osi.html" class="list-group-item list-group-item-action"
+        ><strong>Pacchetti</strong>: Unità base di trasmissione di dati in una
+        rete. I pacchetti contengono una parte dei dati originali, insieme a
+        informazioni di intestazione e di controllo necessarie per il loro
+        trasporto e ricostruzione.
+      </a>
+      <a href="osi.html" class="list-group-item list-group-item-action"
+        ><strong>Dati</strong>: Informazioni digitali, organizzate o non
+        strutturate, che possono essere trasmesse, archiviate o elaborate da un
+        sistema informatico.</a
+      >
+      <a href="osi.html" class="list-group-item list-group-item-action"
+        ><strong>Flusso dei dati</strong>: Sequenza continua di dati trasmessi
+        tra due entità (come applicazioni o dispositivi) in tempo reale o quasi
+        reale, spesso gestita da protocolli per garantire ordine e integrità.</a
+      >
+      <a href="osi.html" class="list-group-item list-group-item-action"
+        ><strong>Sessione</strong>: Una connessione temporanea tra due
+        dispositivi o applicazioni che consente lo scambio di dati. La sessione
+        è gestita da protocolli come TCP o UDP e può includere autenticazione e
+        gestione dello stato.</a
+      >
+      <a href="osi.html" class="list-group-item list-group-item-action"
+        ><strong>HTTPS</strong>: (HyperText Transfer Protocol Secure) Protocollo
+        di comunicazione sicuro per la trasmissione di dati su internet. Combina
+        HTTP con crittografia SSL/TLS per proteggere i dati scambiati tra client
+        e server.</a
+      >
+      <a href="osi.html" class="list-group-item list-group-item-action"
+        ><strong>Crittografia</strong>: Processo di conversione di dati
+        leggibili (testo in chiaro) in un formato illeggibile (testo cifrato)
+        per proteggere le informazioni da accessi non autorizzati. Può essere
+        simmetrica o asimmetrica.</a
+      >
+      <a href="tcpUdp.html" class="list-group-item list-group-item-action"
+        ><strong>Handshake</strong>: Processo di scambio iniziale di segnali o
+        messaggi tra due dispositivi o applicazioni per stabilire una
+        connessione e concordare i parametri di comunicazione (ad esempio,
+        velocità o crittografia). Un esempio comune è l'handshake a tre vie di
+        TCP.</a
+      >
+      <a href="tcpUdp.html" class="list-group-item list-group-item-action"
+        ><strong>Affidabilità</strong>: In rete, è la capacità di un protocollo
+        o sistema di garantire che i dati siano consegnati correttamente e
+        nell'ordine giusto, senza perdita, duplicazione o corruzione. Protocolli
+        come TCP offrono affidabilità grazie a meccanismi di conferma e
+        ritrasmissione.</a
+      >
+      <a href="tcpUdp.html" class="list-group-item list-group-item-action"
+        ><strong>Tecniche di Windowing</strong>: Metodo usato nei protocolli di
+        rete (come TCP) per controllare il flusso di dati tra mittente e
+        destinatario. La finestra (window) definisce quanta quantità di dati può
+        essere inviata senza dover attendere un riconoscimento, ottimizzando la
+        trasmissione.</a
+      >
+      <a href="tcpUdp.html" class="list-group-item list-group-item-action"
+        ><strong>Header</strong>: Parte iniziale di un pacchetto o frame che
+        contiene metadati come indirizzi di origine e destinazione, numeri di
+        sequenza, protocolli usati e altri parametri necessari per il corretto
+        instradamento e gestione dei dati.</a
+      >
+    </div>
+    <div class="container mt-5"></div>
+    <footer class="bg-light text-center py-3">
+      <p>Yongkang Hu - Classe 5F</p>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
